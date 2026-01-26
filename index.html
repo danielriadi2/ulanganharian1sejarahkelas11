@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ujian Online Sejarah - Pendudukan Jepang di Indonesia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="logo-sekolah.png">
+</head>
+<body>
+    <!-- Latar belakang dengan logo sekolah -->
+    <div class="background-logo"></div>
+    
+    <!-- Halaman Login -->
+    <div id="loginPage" class="page active">
+        <div class="login-container">
+            <div class="header">
+                <div class="logo">
+                    <div class="logo-image">
+                        <img src="logo-sekolah.png" alt="Logo Sekolah" id="schoolLogo">
+                    </div>
+                    <h1>UJIAN ONLINE SEJARAH</h1>
+                    <h2>PENDUDUKAN JEPANG DI INDONESIA</h2>
+                    <p>Kelas 10 - Semester 2</p>
+                </div>
+            </div>
+            
+            <div class="login-form">
+                <h3><i class="fas fa-user-circle"></i> IDENTITAS PESERTA UJIAN</h3>
+                <form id="studentForm">
+                    <div class="form-group">
+                        <label for="nama"><i class="fas fa-user"></i> NAMA LENGKAP</label>
+                        <input type="text" id="nama" required placeholder="Masukkan nama lengkap (tanpa gelar)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="kelas"><i class="fas fa-users"></i> KELAS</label>
+                        <select id="kelas" required>
+                            <option value="">-- Pilih Kelas --</option>
+                            <option value="10 Satu">10 Satu</option>
+                            <option value="10 Dua">10 Dua</option>
+                            <option value="10 Tiga">10 Tiga</option>
+                            <option value="10 Empat">10 Empat</option>
+                            <option value="11 Satu">11 Satu</option>
+                            <option value="11 Dua">11 Dua</option>
+                            <option value="11 Tiga">11 Tiga</option>
+                            <option value="12 Satu">12 Satu</option>
+                            <option value="12 Dua">12 Dua</option>
+                            <option value="12 Tiga">12 Tiga</option>
+                        </select>
+                    </div>
+                    
+                    <div class="exam-info">
+                        <h4><i class="fas fa-info-circle"></i> PETUNJUK UJIAN</h4>
+                        <ul>
+                            <li><i class="far fa-clock"></i> Durasi: <strong>20 Menit</strong></li>
+                            <li><i class="fas fa-question-circle"></i> Jumlah Soal: <strong>15</strong> Pilihan Ganda</li>
+                            <li><i class="fas fa-book"></i> Materi: <strong>Pendudukan Jepang di Indonesia</strong></li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Sistem akan mendeteksi kecurangan</li>
+                            <li><i class="fas fa-check-circle"></i> Nilai langsung diketahui setelah selesai</li>
+                        </ul>
+                    </div>
+                    
+                    <button type="submit" class="btn-start">
+                        <i class="fas fa-play-circle"></i> MULAI UJIAN
+                    </button>
+                    
+                    <div class="warning-box">
+                        <i class="fas fa-shield-alt"></i>
+                        <p><strong>PERINGATAN KEAMANAN:</strong> 
+                           <br>1. Dilarang membuka tab/ window baru
+                           <br>2. Dilarang keluar dari halaman ujian
+                           <br>3. Dilarang menyalin (copy) soal
+                           <br>4. Pelanggaran akan dicatat sebagai kecurangan
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Halaman Ujian -->
+    <div id="examPage" class="page">
+        <div class="exam-header">
+            <div class="exam-info-bar">
+                <div class="student-info">
+                    <span><i class="fas fa-user-graduate"></i> <span id="displayNama">-</span></span>
+                    <span><i class="fas fa-chalkboard-teacher"></i> Kelas <span id="displayKelas">-</span></span>
+                </div>
+                
+                <div class="timer-container">
+                    <div class="timer">
+                        <i class="fas fa-hourglass-half"></i>
+                        <span id="timer">20:00</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div id="progress" class="progress"></div>
+                    </div>
+                    <div class="time-remaining">
+                        <i class="far fa-clock"></i> Sisa waktu: <span id="remainingTime">20:00</span>
+                    </div>
+                </div>
+                
+                <div class="question-counter">
+                    <i class="fas fa-list-ol"></i>
+                    <span>Soal: <span id="currentQuestion">1</span>/<span id="totalQuestions">15</span></span>
+                </div>
+            </div>
+            
+            <div class="cheating-warning" id="cheatingWarning">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>PERINGATAN KECURANGAN TERDETEKSI! (Percobaan ke-<span id="cheatCount">1</span>)</span>
+                <button id="continueBtn" class="btn-continue">LANJUTKAN UJIAN</button>
+            </div>
+        </div>
+        
+        <div class="exam-container">
+            <div class="questions-container">
+                <!-- Soal akan di-generate oleh JavaScript -->
+            </div>
+            
+            <div class="navigation-section">
+                <div class="navigation-controls">
+                    <button id="prevBtn" class="btn-nav">
+                        <i class="fas fa-arrow-left"></i> Sebelumnya
+                    </button>
+                    
+                    <div class="question-buttons-container">
+                        <div class="question-buttons">
+                            <!-- Tombol nomor soal akan di-generate -->
+                        </div>
+                    </div>
+                    
+                    <button id="nextBtn" class="btn-nav">
+                        Selanjutnya <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                
+                <div class="answered-info">
+                    <div class="answered-count">
+                        <span class="answered-text">Terjawab: <span id="answeredCount">0</span>/15</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="submit-section">
+                <button id="submitBtn" class="btn-submit">
+                    <i class="fas fa-paper-plane"></i> KUMPULKAN UJIAN
+                </button>
+                <div class="submit-warning">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p>Pastikan semua soal telah terjawab sebelum mengumpulkan. Ujian tidak dapat diulang setelah dikumpulkan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Halaman Hasil -->
+    <div id="resultPage" class="page">
+        <div class="result-container">
+            <div class="result-header">
+                <div class="result-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h2>HASIL UJIAN SEJARAH</h2>
+                <p>Pendudukan Jepang di Indonesia (1942-1945)</p>
+                <div class="result-date" id="resultDate"></div>
+            </div>
+            
+            <div class="student-result-info">
+                <div class="info-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <div>
+                        <span class="info-label">Nama</span>
+                        <span class="info-value" id="resultNama">-</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <div>
+                        <span class="info-label">Kelas</span>
+                        <span class="info-value" id="resultKelas">-</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <span class="info-label">Waktu Pengerjaan</span>
+                        <span class="info-value" id="resultWaktu">-</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="score-container">
+                <div class="score-display">
+                    <div class="score-circle">
+                        <svg width="180" height="180">
+                            <circle cx="90" cy="90" r="80" stroke="#e0e0e0" stroke-width="12" fill="none"></circle>
+                            <circle id="scoreCircle" cx="90" cy="90" r="80" stroke="#4CAF50" stroke-width="12" fill="none" 
+                                    stroke-dasharray="502" stroke-dashoffset="502" transform="rotate(-90 90 90)"></circle>
+                        </svg>
+                        <div class="score-text">
+                            <span id="scoreValue">0</span>
+                            <small>/100</small>
+                        </div>
+                    </div>
+                    <div class="score-grade">
+                        <div class="grade" id="gradeValue">E</div>
+                        <div class="grade-label">NILAI</div>
+                    </div>
+                </div>
+                
+                <div class="score-details">
+                    <h3><i class="fas fa-chart-bar"></i> RINCIAN NILAI</h3>
+                    <div class="detail-grid">
+                        <div class="detail-item correct">
+                            <span class="detail-label">Jawaban Benar</span>
+                            <span class="detail-value" id="correctAnswers">0</span>
+                        </div>
+                        <div class="detail-item wrong">
+                            <span class="detail-label">Jawaban Salah</span>
+                            <span class="detail-value" id="wrongAnswers">0</span>
+                        </div>
+                        <div class="detail-item total">
+                            <span class="detail-label">Total Soal</span>
+                            <span class="detail-value" id="totalSoalResult">15</span>
+                        </div>
+                        <div class="detail-item time">
+                            <span class="detail-label">Durasi</span>
+                            <span class="detail-value" id="durationResult">0 menit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="performance-container">
+                <div class="performance-chart">
+                    <div class="chart-bar correct-bar" id="correctBar" style="height: 0%">
+                        <span class="bar-label">Benar</span>
+                        <span class="bar-percentage" id="correctPercent">0%</span>
+                    </div>
+                    <div class="chart-bar wrong-bar" id="wrongBar" style="height: 0%">
+                        <span class="bar-label">Salah</span>
+                        <span class="bar-percentage" id="wrongPercent">0%</span>
+                    </div>
+                </div>
+                <div class="chart-legend">
+                    <div class="legend-item">
+                        <span class="legend-color correct-color"></span>
+                        <span>Jawaban Benar</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color wrong-color"></span>
+                        <span>Jawaban Salah</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="wrong-answers-container" id="wrongAnswersContainer">
+                <h3><i class="fas fa-book-open"></i> EVALUASI PEMBELAJARAN</h3>
+                <p class="subtitle">Pelajari kembali materi berikut untuk meningkatkan pemahaman:</p>
+                <div class="wrong-answers-list">
+                    <!-- Daftar soal salah akan ditampilkan di sini -->
+                </div>
+            </div>
+            
+            <div class="motivation-container">
+                <h3><i class="fas fa-graduation-cap"></i> PESAN GURU</h3>
+                <div class="motivation-message" id="motivationMessage">
+                    <!-- Pesan motivasi akan ditampilkan di sini -->
+                </div>
+            </div>
+            
+            <div class="result-actions">
+                <button id="restartBtn" class="btn-restart">
+                    <i class="fas fa-redo"></i> UJIAN LAGI
+                </button>
+                <button id="printBtn" class="btn-print">
+                    <i class="fas fa-print"></i> CETAK HASIL
+                </button>
+                <div class="result-note">
+                    <i class="fas fa-info-circle"></i>
+                    <p>Hasil ujian telah disimpan ke database. Diskusikan dengan guru jika ada materi yang belum dipahami.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Konfirmasi Kumpul -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fas fa-question-circle"></i>
+                <h3>KONFIRMASI PENGUMPULAN</h3>
+            </div>
+            <div class="modal-body">
+                <p id="confirmMessage">Anda masih memiliki <span id="unansweredCount">0</span> soal yang belum terjawab.</p>
+                <p><strong>Apakah Anda yakin ingin mengumpulkan ujian sekarang?</strong></p>
+                <div class="answered-status">
+                    <div class="status-item">
+                        <span class="status-dot answered-dot"></span>
+                        <span>Terjawab: <span id="modalAnswered">0</span></span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-dot unanswered-dot"></span>
+                        <span>Belum terjawab: <span id="modalUnanswered">0</span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="modalCancelBtn" class="btn-modal secondary">KEMBALI</button>
+                <button id="modalSubmitBtn" class="btn-modal primary">YA, KUMPULKAN</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Peringatan Kecurangan -->
+    <div id="warningModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>PERINGATAN SISTEM KEAMANAN</h3>
+            </div>
+            <div class="modal-body">
+                <p>Sistem mendeteksi tindakan yang tidak diperbolehkan selama ujian:</p>
+                <ul class="warning-list">
+                    <li><i class="fas fa-times-circle"></i> Membuka tab/window baru</li>
+                    <li><i class="fas fa-times-circle"></i> Keluar dari halaman ujian</li>
+                    <li><i class="fas fa-times-circle"></i> Mencoba menyalin (copy) soal</li>
+                </ul>
+                <p class="warning-alert"><strong>Ujian akan otomatis terkumpul jika pelanggaran berlanjut.</strong></p>
+                <p>Jika ini adalah kesalahan, klik "Lanjutkan Ujian".</p>
+            </div>
+            <div class="modal-footer">
+                <button id="modalOkBtn" class="btn-modal warning-btn">LANJUTKAN UJIAN</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
