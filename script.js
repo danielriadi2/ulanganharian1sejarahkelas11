@@ -3,7 +3,7 @@
 // ==============================
 
 // URL Google Apps Script (GANTI dengan URL Anda setelah membuat Google Apps Script)
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwtMUkDpz8oHNlBrU7RUpCtEbnOdnIEJNXkzKpX1JpO6Fz_HtCgxd7KFS-4VZG0_rWtJA/exec';
+const GOOGLE_SCRIPT_URL = 'URL_WEB_APP_ANDA_DISINI';
 
 // Soal ujian (Pendudukan Jepang di Indonesia)
 const questions = [
@@ -17,8 +17,7 @@ const questions = [
             "Jepang",
             "Vietnam"
         ],
-        correct: "Jepang",
-        explanation: "Jepang mengaku sebagai 'Saudara Tua' bangsa Indonesia untuk mendapatkan simpati rakyat Indonesia saat menggantikan penjajahan Belanda."
+        correct: "Jepang"
     },
     {
         id: 2,
@@ -30,8 +29,7 @@ const questions = [
             "Ingin merebut wilayah Hawaii untuk dijadikan pangkalan wisata",
             "Membantu Jerman memenangkan perang di Eropa"
         ],
-        correct: "Melumpuhkan kekuatan Amerika agar tidak menghalangi Jepang menguasai Asia Pasifik",
-        explanation: "Serangan ke Pearl Harbor bertujuan melumpuhkan armada Amerika Serikat di Pasifik agar tidak mengganggu ekspansi Jepang di Asia Tenggara."
+        correct: "Melumpuhkan kekuatan Amerika agar tidak menghalangi Jepang menguasai Asia Pasifik"
     },
     {
         id: 3,
@@ -43,8 +41,7 @@ const questions = [
             "Menyebarkan agama Shinto",
             "Membangun pabrik-pabrik elektronik"
         ],
-        correct: "Mengambil minyak bumi untuk bahan bakar perang",
-        explanation: "Jepang membutuhkan minyak bumi Indonesia untuk keperluan perang melawan Sekutu dalam Perang Dunia II."
+        correct: "Mengambil minyak bumi untuk bahan bakar perang"
     },
     {
         id: 4,
@@ -56,8 +53,7 @@ const questions = [
             "Bali",
             "Semarang"
         ],
-        correct: "Tarakan (Kalimantan Timur)",
-        explanation: "Jepang mendarat pertama kali di Tarakan, Kalimantan Timur pada 11 Januari 1942 karena daerah tersebut kaya akan minyak bumi."
+        correct: "Tarakan (Kalimantan Timur)"
     },
     {
         id: 5,
@@ -69,8 +65,7 @@ const questions = [
             "Kalijati",
             "Bongaya"
         ],
-        correct: "Kalijati",
-        explanation: "Perjanjian Kalijati ditandatangani di Subang, Jawa Barat, menandai berakhirnya kekuasaan Belanda di Indonesia."
+        correct: "Kalijati"
     },
     {
         id: 6,
@@ -82,8 +77,7 @@ const questions = [
             "Jepang Matahari Terbit, Jepang Putra Asia, Jepang Harapan Asia",
             "Jepang Kuat, Jepang Perkasa, Jepang Jaya"
         ],
-        correct: "Jepang Cahaya Asia, Jepang Pelindung Asia, Jepang Pemimpin Asia",
-        explanation: "Gerakan 3A adalah propaganda Jepang untuk mendapatkan dukungan rakyat Indonesia dengan mengaku sebagai pemimpin dan pelindung Asia."
+        correct: "Jepang Cahaya Asia, Jepang Pelindung Asia, Jepang Pemimpin Asia"
     },
     {
         id: 7,
@@ -95,8 +89,7 @@ const questions = [
             "Cipto Mangunkusumo",
             "Dr. Soetomo"
         ],
-        correct: "Ki Hajar Dewantara",
-        explanation: "Putera dipimpin oleh Empat Serangkai: Soekarno, Hatta, Ki Hajar Dewantara, dan K.H. Mas Mansyur untuk memobilisasi rakyat Indonesia."
+        correct: "Ki Hajar Dewantara"
     },
     {
         id: 8,
@@ -108,8 +101,7 @@ const questions = [
             "Kuli Kontrak",
             "Budak"
         ],
-        correct: "Romusha",
-        explanation: "Romusha adalah sistem kerja paksa Jepang yang menyebabkan penderitaan besar bagi rakyat Indonesia. Ribuan romusha meninggal karena kondisi kerja yang buruk."
+        correct: "Romusha"
     },
     {
         id: 9,
@@ -121,8 +113,7 @@ const questions = [
             "PETA (Pembela Tanah Air)",
             "Jawa Hokokai"
         ],
-        correct: "PETA (Pembela Tanah Air)",
-        explanation: "PETA dibentuk Jepang untuk membantu pertahanan, namun kemudian anggotanya menjadi inti dari Tentara Nasional Indonesia setelah kemerdekaan."
+        correct: "PETA (Pembela Tanah Air)"
     },
     {
         id: 10,
@@ -134,8 +125,7 @@ const questions = [
             "Syu",
             "Son"
         ],
-        correct: "Tonarigumi",
-        explanation: "Tonarigumi adalah sistem rukun tetangga yang dibuat Jepang untuk mengawasi penduduk. Sistem ini masih diteruskan hingga sekarang sebagai RT/RW."
+        correct: "Tonarigumi"
     },
     {
         id: 11,
@@ -147,8 +137,7 @@ const questions = [
             "Memakai pakaian kimono setiap hari Jumat",
             "Mencukur rambut hingga botak"
         ],
-        correct: "Membungkuk ke arah matahari terbit (Timur) untuk menghormati Kaisar",
-        explanation: "Seikerei dianggap bertentangan dengan ajaran Islam karena menyembah selain Allah, sehingga banyak ulama yang menentangnya."
+        correct: "Membungkuk ke arah matahari terbit (Timur) untuk menghormati Kaisar"
     },
     {
         id: 12,
@@ -160,8 +149,7 @@ const questions = [
             "Bahasa Arab",
             "Bahasa Jerman"
         ],
-        correct: "Bahasa Belanda",
-        explanation: "Jepang melarang penggunaan bahasa Belanda untuk menghapus pengaruh Barat dan mempromosikan bahasa Jepang sebagai bahasa resmi."
+        correct: "Bahasa Belanda"
     },
     {
         id: 13,
@@ -173,8 +161,7 @@ const questions = [
             "Untung Suropati",
             "Teuku Umar"
         ],
-        correct: "Supriyadi",
-        explanation: "Pemberontakan PETA di Blitar dipimpin oleh Supriyadi pada 14 Februari 1945 sebagai bentuk perlawanan terhadap kekejaman Jepang."
+        correct: "Supriyadi"
     },
     {
         id: 14,
@@ -186,8 +173,7 @@ const questions = [
             "Laksamana Maeda",
             "Jenderal Terauchi"
         ],
-        correct: "PM Koiso",
-        explanation: "Pada September 1944, PM Koiso menjanjikan kemerdekaan untuk Indonesia di kemudian hari untuk mendapatkan dukungan rakyat Indonesia."
+        correct: "PM Koiso"
     },
     {
         id: 15,
@@ -199,8 +185,7 @@ const questions = [
             "Dijatuhkannya bom atom di kota Hiroshima dan Nagasaki",
             "Kedatangan pasukan Inggris di Surabaya"
         ],
-        correct: "Dijatuhkannya bom atom di kota Hiroshima dan Nagasaki",
-        explanation: "Jatuhnya bom atom di Hiroshima (6 Agustus 1945) dan Nagasaki (9 Agustus 1945) memaksa Jepang menyerah tanpa syarat kepada Sekutu pada 15 Agustus 1945."
+        correct: "Dijatuhkannya bom atom di kota Hiroshima dan Nagasaki"
     }
 ];
 
@@ -809,9 +794,7 @@ function calculateAndDisplayResults() {
         } else {
             wrongQuestions.push({
                 number: examData.shuffledQuestions.indexOf(question) + 1,
-                question: question.question,
-                explanation: question.explanation,
-                userAnswer: userAnswer || "(Tidak dijawab)"
+                question: question.question
             });
         }
     });
@@ -851,7 +834,7 @@ function calculateAndDisplayResults() {
     // Animasikan lingkaran skor
     animateScoreCircle(score);
     
-    // Tampilkan soal yang salah
+    // Tampilkan soal yang salah (TANPA JAWABAN BENAR)
     displayWrongAnswers(wrongQuestions);
     
     // Tampilkan pesan motivasi
@@ -888,7 +871,7 @@ function animateScoreCircle(score) {
     }
 }
 
-// Tampilkan soal yang salah
+// Tampilkan soal yang salah TANPA JAWABAN BENAR
 function displayWrongAnswers(wrongQuestions) {
     const container = document.getElementById('wrongAnswersContainer');
     const listContainer = container.querySelector('.wrong-answers-list');
@@ -910,11 +893,12 @@ function displayWrongAnswers(wrongQuestions) {
         const itemElement = document.createElement('div');
         itemElement.className = 'wrong-answer-item';
         itemElement.innerHTML = `
-            <h4><i class="fas fa-times-circle"></i> Soal ${item.number}</h4>
+            <h4><i class="fas fa-exclamation-circle"></i> Soal ${item.number} Perlu Dipelajari Kembali</h4>
             <p>${item.question}</p>
             <div class="correction-note">
-                <strong>Catatan Pembelajaran:</strong>
-                <p>${item.explanation}</p>
+                <strong>Evaluasi:</strong>
+                <p>Jawaban Anda untuk soal ini belum tepat. Silakan pelajari kembali materi tentang Pendudukan Jepang di Indonesia terkait soal ini.</p>
+                <p class="note">📝 <em>Diskusikan dengan guru untuk pemahaman lebih lanjut</em></p>
             </div>
         `;
         listContainer.appendChild(itemElement);
@@ -931,13 +915,13 @@ function displayMotivationMessage(score, correctCount, totalQuestions) {
         message = "Luar biasa! Pemahaman Anda tentang Pendudukan Jepang di Indonesia sangat mendalam. Pertahankan prestasi gemilang ini dengan terus belajar sejarah bangsa kita.";
         teacher = "Guru Sejarah";
     } else if (score >= 80) {
-        message = "Bagus sekali! Anda telah memahami materi dengan baik. Tingkatkan lagi dengan mempelajari detail-detail peristiwa penting selama pendudukan Jepang.";
+        message = "Bagus sekali! Anda telah memahami materi dengan baik. Tinjau kembali soal-soal yang belum tepat untuk pemahaman yang lebih komprehensif.";
         teacher = "Guru Sejarah";
     } else if (score >= 70) {
-        message = "Sudah baik, namun masih ada ruang untuk perbaikan. Pelajari kembali kronologi peristiwa dan dampak pendudukan Jepang bagi Indonesia.";
+        message = "Sudah baik, namun masih ada ruang untuk perbaikan. Pelajari kembali materi pendudukan Jepang dengan lebih detail untuk hasil yang lebih baik.";
         teacher = "Guru Sejarah";
     } else if (score >= 60) {
-        message = "Cukup baik, tetapi perlu peningkatan. Fokuskan belajar pada kebijakan-kebijakan Jepang dan perlawanan rakyat Indonesia.";
+        message = "Cukup baik, tetapi perlu peningkatan. Fokuskan belajar pada periode pendudukan Jepang dan dampaknya bagi perjuangan kemerdekaan Indonesia.";
         teacher = "Guru Sejarah";
     } else if (score >= 50) {
         message = "Anda perlu lebih serius dalam belajar sejarah. Pahami konsep dasar pendudukan Jepang dan pentingnya periode ini bagi perjuangan kemerdekaan.";
