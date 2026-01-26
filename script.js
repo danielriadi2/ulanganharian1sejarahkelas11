@@ -3,7 +3,7 @@
 // ==============================
 
 // URL Google Apps Script (GANTI dengan URL Anda setelah membuat Google Apps Script)
-const GOOGLE_SCRIPT_URL = 'URL_WEB_APP_ANDA_DISINI';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwtMUkDpz8oHNlBrU7RUpCtEbnOdnIEJNXkzKpX1JpO6Fz_HtCgxd7KFS-4VZG0_rWtJA/exec';
 
 // Soal ujian (Pendudukan Jepang di Indonesia)
 const questions = [
@@ -1057,3 +1057,4 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.logo-image').innerHTML = '<i class="fas fa-school" style="font-size: 60px; color: #FFD700;"></i>';
     };
 });
+
