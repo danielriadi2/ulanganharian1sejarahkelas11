@@ -5,7 +5,7 @@
 // URL Google Apps Script (GANTI dengan URL Anda setelah membuat Google Apps Script)
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwtMUkDpz8oHNlBrU7RUpCtEbnOdnIEJNXkzKpX1JpO6Fz_HtCgxd7KFS-4VZG0_rWtJA/exec';
 
-// Soal ujian (Pendudukan Jepang di Indonesia)
+// Soal Ulangan (Pendudukan Jepang di Indonesia)
 const questions = [
     {
         id: 1,
@@ -276,9 +276,9 @@ function setupCheatingDetection() {
     // Deteksi sebelum window ditutup
     window.addEventListener('beforeunload', function(e) {
         if (examData.startTime && !examData.endTime) {
-            // Hanya tampilkan peringatan jika ujian sedang berlangsung
+            // Hanya tampilkan peringatan jika Ulangan sedang berlangsung
             e.preventDefault();
-            e.returnValue = 'Jika Anda keluar, ujian akan otomatis terkumpul dan dicatat sebagai kecurangan. Yakin ingin keluar?';
+            e.returnValue = 'Jika Anda keluar, Ulangan Harian akan otomatis terkumpul dan dicatat sebagai kecurangan. Yakin ingin keluar?';
             handleCheatingDetected();
         }
     });
@@ -449,21 +449,21 @@ function showLoginPage() {
     // Reset form
     document.getElementById('studentForm').reset();
     
-    // Reset data ujian
+    // Reset data Ulangan
     resetExamData();
     
-    // Hapus kelas ujian berlangsung
-    document.body.classList.remove('ujian-berlangsung');
+    // Hapus kelas ulangan berlangsung
+    document.body.classList.remove('ulangan-berlangsung');
 }
 
-// Tampilkan halaman ujian
+// Tampilkan halaman ulangan
 function showExamPage() {
     document.getElementById('loginPage').classList.remove('active');
     document.getElementById('examPage').classList.add('active');
     document.getElementById('resultPage').classList.remove('active');
     
-    // Tambah kelas ujian berlangsung
-    document.body.classList.add('ujian-berlangsung');
+    // Tambah kelas ulangan berlangsung
+    document.body.classList.add('ulangan-berlangsung');
     
     // Mulai timer
     startTimer();
@@ -483,8 +483,8 @@ function showResultPage() {
     document.getElementById('examPage').classList.remove('active');
     document.getElementById('resultPage').classList.add('active');
     
-    // Hapus kelas ujian berlangsung
-    document.body.classList.remove('ujian-berlangsung');
+    // Hapus kelas ulangan berlangsung
+    document.body.classList.remove('ulangan-berlangsung');
     
     // Tampilkan data siswa
     document.getElementById('resultNama').textContent = studentData.nama;
@@ -506,7 +506,7 @@ function showResultPage() {
     calculateAndDisplayResults();
 }
 
-// Reset data ujian
+// Reset data ulangan
 function resetExamData() {
     examData = {
         startTime: null,
@@ -533,7 +533,7 @@ function resetExamData() {
 }
 
 // ==============================
-// FUNGSI UJIAN DAN TIMER
+// FUNGSI ULANGAN DAN TIMER
 // ==============================
 
 // Mulai timer
@@ -708,7 +708,7 @@ function confirmSubmit() {
     showModal('confirm');
 }
 
-// Kumpulkan ujian
+// Kumpulkan Ulangan
 function submitExam() {
     clearInterval(timerInterval);
     examData.endTime = new Date();
@@ -760,7 +760,7 @@ async function sendDataToGoogleSheets(data) {
         // Periksa apakah URL Google Script sudah dikonfigurasi
         if (GOOGLE_SCRIPT_URL.includes('URL_WEB_APP_ANDA_DISINI')) {
             console.warn('URL Google Apps Script belum dikonfigurasi. Data tidak dikirim ke Google Sheets.');
-            console.log('Data ujian yang dihasilkan:', data);
+            console.log('Data ulangan yang dihasilkan:', data);
             return;
         }
         
@@ -990,12 +990,12 @@ document.getElementById('studentForm').addEventListener('submit', function(e) {
     // Acak soal
     examData.shuffledQuestions = shuffleQuestions();
     
-    // Tampilkan data siswa di halaman ujian
+    // Tampilkan data siswa di halaman ulangan
     document.getElementById('displayNama').textContent = studentData.nama;
     document.getElementById('displayKelas').textContent = studentData.kelas;
     document.getElementById('totalQuestions').textContent = examData.shuffledQuestions.length;
     
-    // Tampilkan halaman ujian
+    // Tampilkan halaman ulangan
     showExamPage();
 });
 
@@ -1003,7 +1003,7 @@ document.getElementById('studentForm').addEventListener('submit', function(e) {
 document.getElementById('prevBtn').addEventListener('click', prevQuestion);
 document.getElementById('nextBtn').addEventListener('click', nextQuestion);
 
-// Tombol kumpulkan ujian
+// Tombol kumpulkan ulangan harian
 document.getElementById('submitBtn').addEventListener('click', confirmSubmit);
 
 // Tombol konfirmasi modal
@@ -1015,7 +1015,7 @@ document.getElementById('modalSubmitBtn').addEventListener('click', function() {
     submitExam();
 });
 
-// Tombol lanjutkan ujian di peringatan kecurangan
+// Tombol lanjutkan ulangan harian di peringatan kecurangan
 document.getElementById('continueBtn').addEventListener('click', function() {
     document.getElementById('cheatingWarning').style.display = 'none';
     hideModal('warning');
@@ -1026,7 +1026,7 @@ document.getElementById('modalOkBtn').addEventListener('click', function() {
     hideModal('warning');
 });
 
-// Tombol ujian lagi
+// Tombol ulangan lagi
 document.getElementById('restartBtn').addEventListener('click', showLoginPage);
 
 // Tombol cetak
@@ -1042,7 +1042,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Cek apakah URL Google Script sudah dikonfigurasi
     if (GOOGLE_SCRIPT_URL.includes('URL_WEB_APP_ANDA_DISINI')) {
-        console.warn('PERINGATAN: URL Google Apps Script belum dikonfigurasi. Data hasil ujian tidak akan disimpan ke Google Sheets.');
+        console.warn('PERINGATAN: URL Google Apps Script belum dikonfigurasi. Data hasil ulangan tidak akan disimpan ke Google Sheets.');
         console.log('Untuk menyimpan data ke Google Sheets:');
         console.log('1. Buat Google Sheets dan Google Apps Script sesuai petunjuk');
         console.log('2. Dapatkan URL Web App dari Google Apps Script');
@@ -1057,4 +1057,5 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.logo-image').innerHTML = '<i class="fas fa-school" style="font-size: 60px; color: #FFD700;"></i>';
     };
 });
+
 
